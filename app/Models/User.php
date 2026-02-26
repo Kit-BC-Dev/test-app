@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use App\Models\UserInformation;
 
 class User extends Authenticatable
 {
@@ -33,6 +35,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $with = ['userInformation'];
+
     /**
      * Get the attributes that should be cast.
      *
@@ -44,5 +48,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function userInformation(): HasOne
+    {
+        return $this->hasOne(UserInformation::class);
     }
 }

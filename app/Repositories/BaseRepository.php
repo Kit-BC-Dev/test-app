@@ -15,7 +15,7 @@ abstract class BaseRepository implements BasicCRUDInterface
 
     public function index(): Collection
     {
-        return $this->model->get();
+        return $this->model->all();
     }
 
     public function create(array $data): Model
@@ -23,9 +23,9 @@ abstract class BaseRepository implements BasicCRUDInterface
         return $this->model->create($data);
     }
 
-    public function findByField(string $field, mixed $value): Model|null
+    public function show(int $id): Model|null
     {
-        return $this->model->where($field, $value)->first();
+        return $this->model->findOrFail($id);
     }
 
     public function update(array $data, int $id): Model|null
