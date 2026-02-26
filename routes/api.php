@@ -8,4 +8,5 @@ Route::group([
     'as' => 'api.v1.',
 ], function () {
     require __DIR__ . '/v1/auth/auth.php';
+    require __DIR__ . '/v1/product/product.php';
 });

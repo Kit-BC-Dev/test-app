@@ -23,10 +23,9 @@ abstract class BaseService
         return $this->repository->create($data);
     }
 
-    public function findByField(string $field, mixed $value): Model|null
+    public function show(int $id): Model|null
     {
-        return $this->repository->findByField($field, $value);
-        
+        return $this->repository->show($id);
     }
 
     public function update(array $data, int $id): Model|null
