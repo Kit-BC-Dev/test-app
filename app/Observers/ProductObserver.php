@@ -30,8 +30,8 @@ class ProductObserver
      */
     public function updated(Product $product): void
     {
-        $before = $product->toArray();
-        $after = $product->fresh()->toArray();
+        $before = $product->getOriginal();
+        $after = $product->getDirty();
         $this->inventoryLogService->create([
             'event' => 'product.update',
             'model_type' => Product::class,
