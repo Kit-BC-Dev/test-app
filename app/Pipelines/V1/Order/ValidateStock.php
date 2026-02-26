@@ -19,7 +19,6 @@ class ValidateStock
                 ]);
             }
         }
-
         return $next($data);
     }
 }
