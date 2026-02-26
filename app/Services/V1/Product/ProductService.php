@@ -16,4 +16,29 @@ class ProductService extends BaseService
     {
         return $this->repository->getUserProducts($userId);
     }
+
+    public function decrementQuantity(int $productId, int $quantity): void
+    {
+        $this->repository->decrementQuantity($productId, $quantity);
+    }
+
+    public function incrementQuantity(int $productId, int $quantity): void
+    {
+        $this->repository->incrementQuantity($productId, $quantity);
+    }
+
+    public function count(): int
+    {
+        return $this->repository->index()->count();
+    }
+
+    public function countLowStock(int $threshold = 10): int
+    {
+        return $this->repository->countLowStock($threshold);
+    }
+
+    public function countOutOfStock(): int
+    {
+        return $this->repository->countOutOfStock();
+    }
 }

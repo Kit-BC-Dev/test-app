@@ -11,4 +11,9 @@ class InventoryLogRepository
     {
         $this->model->create($data);
     }
+
+    public function getRecent(int $limit = 10)
+    {
+        return $this->model->latest()->limit($limit)->get();
+    }
 }
