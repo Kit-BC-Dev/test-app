@@ -20,7 +20,8 @@ class ProductFactory extends Factory
             'name' => fake()->name(),
             'description' => fake()->text(),
             'price' => fake()->randomFloat(2, 1, 1000),
-            'quantity' => fake()->randomNumber(2, 1, 1000),
+            'quantity' => fake()->numberBetween(1, 100),
+            'user_id'  => \App\Models\User::factory(),
         ];
     }
 }

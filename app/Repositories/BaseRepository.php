@@ -38,6 +38,6 @@ abstract class BaseRepository implements BasicCRUDInterface
     public function delete(int $id): bool
     {
         $model = $this->model->findOrFail($id);
-        return $model->delete($id);
+        return $model->delete();
     }
 }

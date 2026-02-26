@@ -13,4 +13,9 @@ class InventoryLogService
     {
         $this->inventoryLogRepository->create($data);
     }
+
+    public function getRecent(int $limit = 10)
+    {
+        return $this->inventoryLogRepository->getRecent($limit);
+    }
 }
